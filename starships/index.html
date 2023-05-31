@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Encyclopedia | Reinaldo Alves</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../assets/Darth-Vader-icon_34501.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        
+        <a href="../index.html">
+            <div class="logo">
+                <img src="../assets/star-wars-logo.png" alt="logo" class="logo-img" />
+                <span class="logo-text">encyclopedia</span>
+            </div>
+        </a>
+
+        <nav>
+            <ul>
+                <a href="../characters/index.html">
+                    <li>Personagens</li>
+                </a>
+                <a href="../planets/index.html">
+                    <li>Planetas</li>
+                </a>
+                <a href="./index.html">
+                    <li>Espaconaves</li>
+                </a>
+            </ul>
+        </nav>
+
+        
+
+    </header>
+    
+    <div class="main-container">
+        
+        <h2>Conheca todas as espaconaves de Star Wars</h2>
+        
+        <div class="main-content" id="main-content"></div>
+
+        <div class="modal" id="modal" onclick="hideModal()">
+            <div class="modal-content" id="modal-content"></div>
+        </div>
+
+        <div class="buttons">
+            <button id="back-button" disabled>< Anterior</button>
+            <div class="pages-container" id="pages-container"></div>
+            <button id="next-button" disabled>Próxima ></button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p class="footer-logo">Star Wars Encyclopedia</p>
+        <p class="copyright">Desenvolvido por &copy; Reinaldo Alves</p>
+        <div class="social-media">
+            
+            <a href="https://www.instagram.com/reinaldo.alves8/" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://www.facebook.com/reinaldo.alves.587" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://github.com/reinaldo-alves" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/reinaldo-alves-8639aba9/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/f68a24141b.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+<!-- DESAFIOS
+1 - Responsividade para tablet e celular
+2 - Fazer páginas para planetas e espaçonaves -->

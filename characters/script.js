@@ -18,6 +18,7 @@ window.onload = async () => {
 async function loadCharacters(url) {
     const mainContent = document.getElementById('main-content');
     mainContent.innerHTML = ''; // Limpar os resultados anteriores
+    
 
     try {
 
@@ -106,6 +107,9 @@ async function loadCharacters(url) {
         backButton.style.visibility = responseJson.previous? 'visible' : 'hidden'
         nextButton.style.visibility = responseJson.next? 'visible' : 'hidden'
 
+        const pagesContainer = document.getElementById('pages-container')
+        pagesContainer.innerText = `Pagina ${getPageID(url)} de ${Math.ceil(responseJson.count / 10)}`
+
         currentPageUrl = url
 
     } catch (error) {
@@ -147,6 +151,13 @@ async function loadPreviousPage() {
 function hideModal() {
     const modal = document.getElementById('modal')
     modal.style.visibility = 'hidden'
+}
+
+function getPageID(url) {
+    if(url.length === 0) return null;
+    const lastChar = url[url.length - 1];
+    if(lastChar === 'e') return 1;
+    return lastChar
 }
 
 function convertEyeColor(eyeColor) {
