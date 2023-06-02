@@ -168,21 +168,15 @@ footer {
     font-weight: 500;
 }
 
-@media (max-width: 850px) {
-    header {
-        flex-direction: column;
-        margin-bottom: 20px;
-        row-gap: 20px;
-        height: auto;
-    }
-
+@media (max-width: 1280px) {
     .main-container {
         height: auto;
     }
 
     .main-content {
         height: auto;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
     }
 
@@ -193,12 +187,32 @@ footer {
 
     .cards {
         max-width: 470px;
-        height: 470px;
+        height: 300px;
     }
 
     .social-media {
         padding-bottom: 20px;
     }
+}
+
+@media (max-width: 850px) {
+    header {
+        flex-direction: column;
+        margin-bottom: 20px;
+        row-gap: 20px;
+        height: auto;
+    }
+
+    .main-content {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cards {
+        height: 470px;
+    }
+
 }
 
 @media (max-width: 440px) {

@@ -91,7 +91,7 @@ async function loadCharacters(url) {
 
         responseJson.results.filter((item) => item.name !== 'unknown').forEach((character) => {
             const card = document.createElement('div')
-            card.style.backgroundImage = `url(${images[character.url.replace(/\D/g, "")]}`
+            card.style.backgroundImage = `url(${images[character.url.replace(/\D/g, "")]})`
             card.className = 'cards'
 
             const characterNameBG = document.createElement('div')
@@ -112,7 +112,7 @@ async function loadCharacters(url) {
                 modalContent.innerHTML = ''
 
                 const characterImage = document.createElement('div')
-                characterImage.style.backgroundImage = `url('https://starwars-visualguide.com/assets/img/planets/${character.url.replace(/\D/g, "")}.jpg')`
+                characterImage.style.backgroundImage = `url(${images[character.url.replace(/\D/g, "")]})`
                 characterImage.className = 'character-image'
 
                 const name = document.createElement('span')
@@ -133,7 +133,7 @@ async function loadCharacters(url) {
                 
                 const climate = document.createElement('span')
                 climate.className = 'character-details'
-                climate.innerText = `Clima: ${character.climate}`
+                climate.innerText = `Clima: ${convertClimate(character.climate)}`
 
                 const gravity = document.createElement('span')
                 gravity.className = 'character-details'
@@ -141,7 +141,7 @@ async function loadCharacters(url) {
 
                 const terrain = document.createElement('span')
                 terrain.className = 'character-details'
-                terrain.innerText = `Terreno: ${character.terrain}`
+                terrain.innerText = `Terreno: ${convertTerrain(character.terrain)}`
 
                 const water = document.createElement('span')
                 water.className = 'character-details'
@@ -254,9 +254,8 @@ function convertDiameter(diameter) {
 }
 
 function convertGravity(gravity) {
-    if (gravity === "unknown") {
-      return "desconhecida";
-    }
+    if (gravity === "unknown") return "desconhecida";
+    if (gravity === "1.5 (surface), 1 standard (Cloud City)") return "1.5 atm (superficie), 1 atm (Cloudy City)";
     const newGravity = gravity.replace('standard', 'atm')    
     return newGravity || gravity;
 }
@@ -275,129 +274,82 @@ function convertPopulation(population) {
     return `${population} hab.` || population;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function convertEyeColor(eyeColor) {
-    if (eyeColor === "blue-gray") return "azul/cinza"
+function convertClimate(climate) {
+    let clima = climate;
+    clima = clima.replace('unknown', 'desconhecido')
+    clima = clima.replace('arid',  'arido')
+    clima = clima.replace('artificial temperate', 'temperado artificialmente')
+    clima = clima.replace('artic',  'artico')
+    clima = clima.replace('frozen',  'congelado')
+    clima = clima.replace('frigid',  'frigido')
+    clima = clima.replace('hot',  'quente')
+    clima = clima.replace('humid',  'umido')
+    clima = clima.replace('moist',  'umido')
+    clima = clima.replace('murky',  'obscuro')
+    clima = clima.replace('polluted',  'poluido')
+    clima = clima.replace('rocky',  'rochoso')
+    clima = clima.replace('subartic',  'subartico')
+    clima = clima.replace('superheated',  'superaquecido')
+    clima = clima.replace('temperate',  'temperado')
+    clima = clima.replace('windy',  'ventoso')
     
-    const colors = {
-      blue: "azul",
-      brown: "castanho",
-      green: "verde",
-      yellow: "amarelo",
-      black: "preto",
-      pink: "rosa",
-      red: "vermelho",
-      orange: "laranja",
-      hazel: "avela",
-      unknown: "desconhecida"
-    };
-  
-    return colors[eyeColor.toLowerCase()] || eyeColor;
-}
-  
-function convertHeight(height) {
-    if (height === "unknown") {
-      return "desconhecida";
-    }
-    
-    return (height / 100).toFixed(2) + ' m';
-}
-  
-function convertMass(mass) {
-    if (mass === "unknown") {
-      return "desconhecido";
-    }
-    
-    return `${mass} kg`;
-}
-  
-function convertBirthYear(birthYear) {
-    if (birthYear === "unknown") {
-      return "desconhecido";
-    }
-    
-    return birthYear;
+    return clima;
 }
 
-function convertGender(gender) {
-    if (gender === "n/a" || gender === "none") {
-        return "desconhecido"
-    }
+function convertTerrain(terrain) {
+    let terreno = terrain;
+    terreno = terreno.replace('unknown', 'desconhecido')
+    terreno = terreno.replace('acid pools',  'piscinas acidas')
+    terreno = terreno.replace('airless asteroid',  'asteroide se mar')
+    terreno = terreno.replace('ash', 'cinzas')
+    terreno = terreno.replace('barren',  'esteril')
+    terreno = terreno.replace('bogs',  'pantanos')
+    terreno = terreno.replace('ice canyons',  'canions de gelo')
+    terreno = terreno.replace('rocky canyons',  'canions rochosos')
+    terreno = terreno.replace('canyon',  'canion')
+    terreno = terreno.replace('ice caves',  'cavernas de gelo')
+    terreno = terreno.replace('caves',  'cavernas')
+    terreno = terreno.replace('cities',  'cidades')
+    terreno = terreno.replace('urban',  'paisagem urbana')
+    terreno = terreno.replace('cityscape',  'paisagem urbana')
+    terreno = terreno.replace('cliff',  'penhasco')
+    terreno = terreno.replace('desert',  'deserto')
+    terreno = terreno.replace('field',  'campo')
+    terreno = terreno.replace('fungus forests',  'florestas de fungos')
+    terreno = terreno.replace('rainforest',  'floresta')
+    terreno = terreno.replace('forest',  'floresta')
+    terreno = terreno.replace('gas giant',  'gasoso')
+    terreno = terreno.replace('glaciers',  'geleiras')
+    terreno = terreno.replace('grassland',  'gramado')
+    terreno = terreno.replace('grassy hills',  'montes gramados')
+    terreno = terreno.replace('grass',  'grama')
+    terreno = terreno.replace('hill',  'monte')
+    terreno = terreno.replace('rocky islands',  'ilhas rochosas')
+    terreno = terreno.replace('island',  'ilha')
+    terreno = terreno.replace('jungle',  'selva')
+    terreno = terreno.replace('lake',  'lago')
+    terreno = terreno.replace('mountain ranges',  'cadeias de montanhas')
+    terreno = terreno.replace('mountain',  'montanha')
+    terreno = terreno.replace('ocean',  'oceano')
+    terreno = terreno.replace('plain',  'planicie')
+    terreno = terreno.replace('plateaus',  'platos')
+    terreno = terreno.replace('reef',  'falesia')
+    terreno = terreno.replace('lava rivers',  'rios de lava')
+    terreno = terreno.replace('river',  'rio')
+    terreno = terreno.replace('rocky',  'rochoso')
+    terreno = terreno.replace('rock arches',  'arcos de rocha')
+    terreno = terreno.replace('rock',  'rocha')
+    terreno = terreno.replace('savanna',  'savana')
+    terreno = terreno.replace('savannah',  'savana')
+    terreno = terreno.replace('scrublands',  'matagais')
+    terreno = terreno.replace('sinkhole',  'sumidouro')
+    terreno = terreno.replace('seas',  'mares')
+    terreno = terreno.replace('swamp',  'pantano')
+    terreno = terreno.replace('toxic cloudsea',  'mar de nuvens toxicas')
+    terreno = terreno.replace('valley',  'vale')
+    terreno = terreno.replace('verdant',  'verdejante')
+    terreno = terreno.replace('vines',  'videiras')
+    terreno = terreno.replace('volcanoes',  'vulcoes')
     
-    const genders = {
-      male: "masculino",
-      female: "feminino",
-    };
-  
-    return genders[gender.toLowerCase()] || gender;
-}
-
-function convertHairColor(hairColor) {
-    if (hairColor === "n/a") return "desconhecida"
-    if (hairColor === "brown, grey") return "castanho/cinza"
-    if (hairColor === "auburn, white") return "ruivo/branco"
-    if (hairColor === "auburn, grey") return "ruivo/cinza"
-    
-    const colors = {
-      none: "sem cabelo",
-      blond: "loiro",
-      blonde: "loiro",
-      brown: "castanho",
-      black: "preto",
-      white: "branco",
-      grey: "cinza",
-      auburn: "ruivo"
-    };
-  
-    return colors[hairColor.toLowerCase()] || hairColor;
-}
-
-function convertSkinColor(skinColor) {
-    if (skinColor === "white, blue") return "branca/azul"
-    if (skinColor === "white, red") return "branca/vermelha"
-    if (skinColor === "green-tan, brown") return "marrom esverdeada"
-    if (skinColor === "brown mottle") return "com manchas marrons"
-    if (skinColor === "mottled green") return "verde manchado"
-    if (skinColor === "blue, grey" || skinColor === "grey, blue") return "cinza/azul"
-    if (skinColor === "grey, red") return "cinza/vermelha"
-    if (skinColor === "grey, green, yellow") return "cinza/verde/amarela"
-    if (skinColor === "fair, green, yellow") return "clara/verde/amarela"
-    if (skinColor === "silver, red") return "prateada/vermelha"
-    if (skinColor === "green, grey") return "verde/cinza"
-    if (skinColor === "red, blue, white") return "vermelha/azul/branca"
-    if (skinColor === "brown, white") return "marrom/branca"
-
-    const colors = {
-      fair: "clara",
-      gold: "dourada",
-      white: "branca",
-      light: "clara",
-      brown: "marrom",
-      dark: "escura",
-      grey: "cinza",
-      unknown: "cor desconhecida",
-      green: "verde",
-      pale: "palida",
-      metal: "metalica",
-      orange: "laranja", 
-      red: "vermelha",
-      blue: "azul", 
-      yellow: "amarela",
-      tan: "bronzeada"
-    };
-  
-    return colors[skinColor.toLowerCase()] || skinColor;
+    return terreno;
 }

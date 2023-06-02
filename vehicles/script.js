@@ -1,42 +1,45 @@
-let currentPageUrl = 'https://swapi.dev/api/starships'
+let currentPageUrl = 'https://swapi.dev/api/vehicles'
 
 const images = {
-    2: 'https://i.pinimg.com/originals/43/54/d3/4354d36812bdd8049b6e4a0f1a34e3cc.jpg',
-    3: 'https://lumiere-a.akamaihd.net/v1/images/Star-Destroyer_ab6b94bb.jpeg',
-    5: 'https://static.wikia.nocookie.net/starwars/images/5/5b/Imperial_Sentinel-class_shuttle.png',
-    9: 'https://static.wikia.nocookie.net/starwars/images/7/70/DSI-HDapproach.png',
-    10: 'https://s2.glbimg.com/coHwdDkMeRVO9T2A_v1EIWLuHTE=/e.glbimg.com/og/ed/f/original/2019/08/27/31618033034_1dcde167ed_k.jpg',
-    11: 'https://lumiere-a.akamaihd.net/v1/images/Y-Wing-Fighter_0e78c9ae.jpeg',
-    12: 'https://p.turbosquid.com/ts-thumb/Zs/EGvWk6/WP2ajMyC/xwingtopleft_01_open_01/jpg/1444815293/600x600/fit_q87/f5523580da82b27186a787df4a5834587118442d/xwingtopleft_01_open_01.jpg',
-    13: 'https://bbts1.azureedge.net/images/p/full/2021/01/0cbfc29f-020e-479d-98f4-18252af8a8fd.jpg',
-    15: 'https://static.wikia.nocookie.net/starwars/images/3/30/Executor_BF2.png',
-    17: 'https://static.wikia.nocookie.net/starwars/images/6/67/GR-75_Medium_Transport_TAEtrivia.png',
-    21: 'https://static.wikia.nocookie.net/starwars/images/b/ba/Slave_I_DICE.png',
-    22: 'https://lumiere-a.akamaihd.net/v1/images/veh_ia_1752_040381b2.jpeg',
-    23: 'https://static.wikia.nocookie.net/starwars/images/7/71/NebulonB-SWS.png',
-    27: 'https://lumiere-a.akamaihd.net/v1/images/e6d_ia_2581_47f64de7.jpeg',
-    28: 'https://lumiere-a.akamaihd.net/v1/images/screen_shot_2015-05-26_at_5_16a39e17.png',
-    29: 'https://static.wikia.nocookie.net/starwars/images/9/9f/B-wing-Squadronds.png',
-    31: 'https://lumiere-a.akamaihd.net/v1/images/databank_republicattackcruiser_01_169_812f153d.jpeg',
-    32: 'https://static.wikia.nocookie.net/starwars/images/0/0a/Lucrehulk-Battlefront-2-Render.png',
-    39: 'https://i.redd.it/wzyg0gly4pp11.jpg',
-    40: 'https://static.wikia.nocookie.net/starwars/images/9/9e/Naboo_Royal_Starship.png',
-    41: 'https://static.wikia.nocookie.net/starwars/images/1/12/Sithinfiltrator-NEGVV.png',
-    43: 'https://static.wikia.nocookie.net/starwars/images/2/2b/Royalcruiser.jpg',
-    47: 'https://static.wikia.nocookie.net/starwars/images/c/c7/Aa9coruscantfreighter.jpg',
-    48: 'https://static.wikia.nocookie.net/starwars/images/c/c9/Jedi_Starfighter_AotC.png',
-    49: 'https://lumiere-a.akamaihd.net/v1/images/h-type-nubian-yacht_7d67bc00.jpeg',
-    52: 'https://static.wikia.nocookie.net/starwars/images/7/70/Acclamator-TCWIV.png',
-    58: 'https://static.wikia.nocookie.net/starwars/images/1/10/CountDookusSolarSailer-WotF.png',
-    59: 'https://static.wikia.nocookie.net/battlefront/images/1/17/Providence-Class.png',
-    61: 'https://static.wikia.nocookie.net/starwars/images/7/71/Theta.jpg',
-    63: 'https://lumiere-a.akamaihd.net/v1/images/databank_republicattackcruiser_01_169_812f153d.jpeg',
-    64: 'https://static.wikia.nocookie.net/starwars/images/7/73/Nabooskiff3-chron.jpg',
-    65: 'https://lumiere-a.akamaihd.net/v1/images/1-1-starfighter_decf3188.jpeg',
-    66: 'https://i.pinimg.com/originals/3a/6a/55/3a6a55d8e3f05882110dd3f14b86514b.jpg',
-    68: 'https://swrpggm.com/wp-content/uploads/2021/02/Munificent_FE.png',
-    74: 'https://i.pinimg.com/originals/bf/b3/bd/bfb3bd3b211349adb702f27448df43a2.png',
-    75: 'https://static.wikia.nocookie.net/starwars/images/6/66/Nimbus-class_V-wing_TFOWM.png'
+    4: 'https://starwars-visualguide.com/assets/img/vehicles/4.jpg',
+    6: 'https://starwars-visualguide.com/assets/img/vehicles/6.jpg',
+    7: 'https://starwars-visualguide.com/assets/img/vehicles/7.jpg',
+    8: 'https://starwars-visualguide.com/assets/img/vehicles/8.jpg',
+    14: 'https://starwars-visualguide.com/assets/img/vehicles/14.jpg',
+    16: 'https://starwars-visualguide.com/assets/img/vehicles/16.jpg',
+    18: 'https://starwars-visualguide.com/assets/img/vehicles/18.jpg',
+    19: 'https://starwars-visualguide.com/assets/img/vehicles/19.jpg',
+    20: 'https://starwars-visualguide.com/assets/img/vehicles/20.jpg',
+    24: 'https://starwars-visualguide.com/assets/img/vehicles/24.jpg',
+    25: 'https://starwars-visualguide.com/assets/img/vehicles/25.jpg',
+    26: 'https://starwars-visualguide.com/assets/img/vehicles/26.jpg',
+    30: 'https://starwars-visualguide.com/assets/img/vehicles/30.jpg',
+    33: 'https://starwars-visualguide.com/assets/img/vehicles/33.jpg',
+    34: 'https://starwars-visualguide.com/assets/img/vehicles/34.jpg',
+    35: 'https://starwars-visualguide.com/assets/img/vehicles/35.jpg',
+    36: 'https://starwars-visualguide.com/assets/img/vehicles/36.jpg',
+    37: 'https://starwars-visualguide.com/assets/img/vehicles/37.jpg',
+    38: 'https://starwars-visualguide.com/assets/img/vehicles/38.jpg',
+    42: 'https://starwars-visualguide.com/assets/img/vehicles/42.jpg',
+    44: 'https://cdn.thingiverse.com/assets/9d/7d/2b/3a/7a/featured_preview_Screenshot_2019-12-11_00-05-16.png',
+    45: 'https://img.swcombine.com//vehicles/62/large.jpg',
+    46: 'https://static.wikia.nocookie.net/starwars/images/f/f6/XJ-6_hotrod.jpg',
+    50: 'https://static.wikia.nocookie.net/starwars/images/5/5f/LAAT.jpg',
+    51: 'https://i.pinimg.com/originals/b0/09/6c/b0096ca333a8ed697c39a5d90e14d304.jpg',
+    53: 'https://static.wikia.nocookie.net/starwars/images/6/6f/ATTE-SWE.jpg',
+    54: 'https://static.wikia.nocookie.net/starwars/images/5/5f/SPHA-T.jpg',
+    55: 'https://jundroo.blob.core.windows.net/simplerockets/files/2020/12/23/4dZG1i/UserView-0.jpg',
+    56: 'https://static.wikia.nocookie.net/starwars/images/1/13/NeimoidianShuttleSecretWeapons.png',
+    57: 'https://static.wikia.nocookie.net/starwars/images/8/82/Nantex-class_fighters.png',
+    60: 'https://static.wikia.nocookie.net/swg/images/e/ec/Grievous_Exclusive_Mount.jpg',
+    62: 'https://static.wikia.nocookie.net/starwars/images/6/66/Fire_ship.jpg',
+    67: 'https://static.wikia.nocookie.net/starwars/images/a/a0/DroidTrifighter-TCWs3BR2.png',
+    69: 'https://static.wikia.nocookie.net/starwars/images/6/60/Wookieeflyingcat.jpg',
+    70: 'https://static.wikia.nocookie.net/starwars/images/d/dc/Catamaran.jpg',
+    71: 'https://static.wikia.nocookie.net/starwars/images/f/f7/JuggernautROTS.jpg',
+    72: 'https://i.ytimg.com/vi/mYfYr-pjdqE/maxresdefault.jpg',
+    73: 'https://static.wikia.nocookie.net/starwars/images/6/6d/DroidGunship-DB.png',
+    76: 'https://static.wikia.nocookie.net/starwars/images/5/5c/AT-RT_BF2.png'
 }
 
 window.onload = async () => {
@@ -132,8 +135,7 @@ async function loadCharacters(url) {
 
                 const classe = document.createElement('span')
                 classe.className = 'character-details'
-                classe.innerText = `Classe: ${character.starship_class}`
-
+                classe.innerText = `Classe: ${character.vehicle_class}`
 
                 modalContent.appendChild(characterImage)
                 modalContent.appendChild(name)
@@ -237,6 +239,8 @@ function convertCargo(cargo) {
 }
 
 function convertConsumables(consumables) {
+    if (consumables === "unknown" || consumables === "n/a") return "desconhecido";
+    if (consumables === "none") return "nenhum"
     let con = consumables;
     con = con.replace('second', 'segundo')
     con = con.replace('minute',  'minuto')
