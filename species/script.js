@@ -53,7 +53,7 @@ async function loadCharacters(url) {
 
                 const name = document.createElement('span')
                 name.className = 'character-details'
-                name.innerText = `Nome: ${character.name}`
+                name.innerText = `Nome: ${convertName(character.name)}`
 
                 const classification = document.createElement('span')
                 classification.className = 'character-details'
@@ -177,9 +177,7 @@ function convertColor(color) {
     if (color === "none") return "nenhuma"
 
     let cor = color;
-    cor = cor.replace("caucasian", "caucasiana");
-    cor = cor.replace("asian", "asiatica");
-    cor = cor.replace("hispanic", "hispanica");
+    cor = cor.replace("caucasian, black, asian, hispanic", "caucasiana, negra, asiatica, hispanica");
     cor = cor.replace("golden", "dourada");
     cor = cor.replace("white", "branca");
     cor = cor.replace("brown", "marrom");
