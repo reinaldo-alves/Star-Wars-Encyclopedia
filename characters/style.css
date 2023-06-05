@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/star-wars');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
 
 * {
     margin: 0;
@@ -219,9 +220,20 @@ footer {
     display: flex;
     flex-direction: column;
     row-gap: 15px;
-    padding: 30px 10px;
+    padding: 10px 10px 30px 10px;
     align-items: center;
     border: 1px solid gold;
+}
+
+.exit-button {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+    align-self: flex-end;
+    color: gold;
+    padding: 0 10px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: -25px;
 }
 
 .character-image {

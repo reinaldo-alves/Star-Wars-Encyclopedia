@@ -86,6 +86,10 @@ async function loadCharacters(url) {
                 const modalContent = document.getElementById('modal-content')
                 modalContent.innerHTML = ''
 
+                const exitButton = document.createElement('div')
+                exitButton.className = 'exit-button'
+                exitButton.innerText = 'X'
+
                 const characterImage = document.createElement('div')
                 characterImage.style.backgroundImage = `url(${images[character.url.replace(/\D/g, "")]})`
                 characterImage.className = 'character-image'
@@ -134,7 +138,7 @@ async function loadCharacters(url) {
                 classe.className = 'character-details'
                 classe.innerText = `Classe: ${character.starship_class}`
 
-
+                modalContent.appendChild(exitButton)
                 modalContent.appendChild(characterImage)
                 modalContent.appendChild(name)
                 modalContent.appendChild(model)
